@@ -20,13 +20,13 @@ score = 0;
 # check each image
 for filedata in grid_data:
 	file = filedata[0]
-	
+	 
 	#read in image as grayscale
 	opencv_image = cv2.imread("./imgs/" + file, cv2.COLOR_GRAY2RGB)
 	 
-
 	#try to find the ball in the image
 	ball = find_ball.find_ball(opencv_image)
+	print(file, ball)
 	
 	if ball is None:
 		ball = np.array([0, 0, 0])
@@ -38,11 +38,9 @@ for filedata in grid_data:
 	# get radius err
 	r_err = math.fabs(ball[2] - float(filedata[3]))
 		 
-	
+	print("circle center err =", center_err, "pixel")
+	print("circle radius err =", r_err, "pixel")
 	if center_err <= center_err_thresh and r_err <= radius_err_thresh:
 		score += 1;
-	else:
-		print(file, ball)
-	#	find_ball.find_ball(opencv_image, True)
-	#	cv2.waitKey(0)
+ 
 print("score =", score)
