@@ -3,13 +3,9 @@
 import cv2
 import sys
 import copy
-import matplotlib
-import skimage
-from skimage import feature, color
-from matplotlib import pyplot as plt
-from skimage.measure import ransac, LineModelND
-from skimage.measure import CircleModel
+
 import numpy as np
+
 try:
 	from PIL import Image, ImageDraw, ImageFont
 except ImportError:
@@ -27,16 +23,16 @@ def find_ball(opencv_image, debug=False):
 		Returns [x, y, radius] of the ball, and [0,0,0] or None if no ball is found.
 	"""
 
-	ball = None	
-
-	opencv_image = cv2.bilateralFilter(opencv_image,7,90,90)
-	circles = cv2.HoughCircles(opencv_image, cv2.cv.CV_HOUGH_GRADIENT, 2, 1000, maxRadius = 100 )
+	ball = None
+	
+	opencv_image = cv2.bilateralFilter(opencv_image,8,140,140)
+	circles = cv2.HoughCircles(opencv_image,  cv2.cv.CV_HOUGH_GRADIENT, 2.85, 1000, maxRadius = 90 )
 	if circles is not None:
 		ball = circles[0][0, :]
 	else:
-		circles = cv2.HoughCircles(opencv_image, cv2.cv.CV_HOUGH_GRADIENT,4, 1000, maxRadius = 100)
+		circles = cv2.HoughCircles(opencv_image,  cv2.cv.CV_HOUGH_GRADIENT,5.55, 5000, maxRadius = 90)
 		if circles is not None:
-			ball = circles[0][0, :]		
+			ball = circles[0][0, :]
 	if debug and circles is not None:
 		display_circles(opencv_image, circles[0], ball)
 	return ball
@@ -64,7 +60,9 @@ def display_circles(opencv_image, circles, best=None):
 		cv2.circle(circle_image,(c[0],c[1]),c[2],(255,255,0),2)
 		# draw the center of the circle
 		cv2.circle(circle_image,(c[0],c[1]),2,(0,255,255),3) 
-		# write coords          
+		# write coords
+		cv2.putText(circle_image,str(c),(c[0],c[1]),cv2.FONT_HERSHEY_SIMPLEX,
+					.5,(255,255,255),2,cv2.LINE_AA)            
 	
 	#highlight the best circle in a different color
 	if best is not None:
@@ -72,7 +70,9 @@ def display_circles(opencv_image, circles, best=None):
 		cv2.circle(circle_image,(best[0],best[1]),best[2],(0,0,255),2)
 		# draw the center of the circle
 		cv2.circle(circle_image,(best[0],best[1]),2,(0,0,255),3) 
-		# write coords          
+		# write coords
+		cv2.putText(circle_image,str(best),(best[0],best[1]),cv2.FONT_HERSHEY_SIMPLEX,
+					.5,(255,255,255),2,cv2.LINE_AA)            
 		
 	
 	#display the image
