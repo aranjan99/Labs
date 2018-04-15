@@ -26,7 +26,7 @@ def find_ball(opencv_image, debug=False):
 	ball = None
 	
 	opencv_image = cv2.bilateralFilter(opencv_image,8,140,140)
-	circles = cv2.HoughCircles(opencv_image,  cv2.HOUGH_GRADIENT, 1.05, 10000, param1=20,param2=40,minRadius=0,maxRadius=120)
+	circles = cv2.HoughCircles(opencv_image,  cv2.HOUGH_GRADIENT, 1.05, 10000, param1=25,param2=40,minRadius=0,maxRadius=120)
 	if circles is not None:
 		ball = circles[0][0, :]
 	
