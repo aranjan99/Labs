@@ -26,17 +26,11 @@ def find_ball(opencv_image, debug=False):
 	ball = None
 	
 	opencv_image = cv2.bilateralFilter(opencv_image,8,140,140)
-	circles = cv2.HoughCircles(opencv_image,  cv2.HOUGH_GRADIENT, 2.85, 1000, maxRadius = 90 )
+	circles = cv2.HoughCircles(opencv_image,  cv2.HOUGH_GRADIENT, 1.05, 10000, param1=20,param2=40,minRadius=0,maxRadius=120)
 	if circles is not None:
 		ball = circles[0][0, :]
-	else:
-		circles = cv2.HoughCircles(opencv_image,  cv2.HOUGH_GRADIENT,5.55, 5000, maxRadius = 90)
-		if circles is not None:
-			ball = circles[0][0, :]
-	if debug and circles is not None:
-		display_circles(opencv_image, circles[0], ball)
+	
 	return ball
-
 
 def display_circles(opencv_image, circles, best=None):
 	"""Display a copy of the image with superimposed circles.
