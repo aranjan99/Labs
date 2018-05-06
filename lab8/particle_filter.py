@@ -85,7 +85,7 @@ def measurement_update(particles, measured_marker_list, grid):
                 maxExpDis.append(nearestMarkerDistance * nearestMarkerDistance * 2)                
                 nearestMarkerAngle = diff_heading_deg(marker1[2], marker2[2])
                 weight = weight * np.exp(-(nearestMarkerDistance * nearestMarkerDistance * 2)-(nearestMarkerAngle * nearestMarkerAngle * 0.02))
-            for i in range(int(countDifference)):
+            for i in range(countDifference):
                 weight = weight * np.exp(-max(maxExpDis)-40.5)
             particleScoreMap.append((weight, particle))
 
