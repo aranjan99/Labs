@@ -6,8 +6,8 @@ Q-Values at iteration 0 for action 'exit' are correct.   Student/correct solutio
             0.0000
 """
 
-Q-Values at iteration 0 for action 'east' are correct.   Student/correct solution:
-	q_values_k_0_action_east: """
+Q-Values at iteration 0 for action 'south' are correct.   Student/correct solution:
+	q_values_k_0_action_south: """
            illegal
             0.0000
            illegal
@@ -20,15 +20,15 @@ Q-Values at iteration 0 for action 'north' are correct.   Student/correct soluti
            illegal
 """
 
-Q-Values at iteration 0 for action 'south' are correct.   Student/correct solution:
-	q_values_k_0_action_south: """
+Q-Values at iteration 0 for action 'west' are correct.   Student/correct solution:
+	q_values_k_0_action_west: """
            illegal
             0.0000
            illegal
 """
 
-Q-Values at iteration 0 for action 'west' are correct.   Student/correct solution:
-	q_values_k_0_action_west: """
+Q-Values at iteration 0 for action 'east' are correct.   Student/correct solution:
+	q_values_k_0_action_east: """
            illegal
             0.0000
            illegal
@@ -45,8 +45,8 @@ Q-Values at iteration 1 for action 'exit' are correct.   Student/correct solutio
             1.0000
 """
 
-Q-Values at iteration 1 for action 'east' are correct.   Student/correct solution:
-	q_values_k_1_action_east: """
+Q-Values at iteration 1 for action 'south' are correct.   Student/correct solution:
+	q_values_k_1_action_south: """
            illegal
             0.0000
            illegal
@@ -59,15 +59,15 @@ Q-Values at iteration 1 for action 'north' are correct.   Student/correct soluti
            illegal
 """
 
-Q-Values at iteration 1 for action 'south' are correct.   Student/correct solution:
-	q_values_k_1_action_south: """
+Q-Values at iteration 1 for action 'west' are correct.   Student/correct solution:
+	q_values_k_1_action_west: """
            illegal
             0.0000
            illegal
 """
 
-Q-Values at iteration 1 for action 'west' are correct.   Student/correct solution:
-	q_values_k_1_action_west: """
+Q-Values at iteration 1 for action 'east' are correct.   Student/correct solution:
+	q_values_k_1_action_east: """
            illegal
             0.0000
            illegal
@@ -91,8 +91,8 @@ Q-Values at iteration 2 for action 'exit' are NOT correct.   Student solution:
             1.0000
 """
 
-Q-Values at iteration 2 for action 'east' are correct.   Student/correct solution:
-	q_values_k_2_action_east: """
+Q-Values at iteration 2 for action 'south' are correct.   Student/correct solution:
+	q_values_k_2_action_south: """
            illegal
             0.0000
            illegal
@@ -105,15 +105,15 @@ Q-Values at iteration 2 for action 'north' are correct.   Student/correct soluti
            illegal
 """
 
-Q-Values at iteration 2 for action 'south' are correct.   Student/correct solution:
-	q_values_k_2_action_south: """
+Q-Values at iteration 2 for action 'west' are correct.   Student/correct solution:
+	q_values_k_2_action_west: """
            illegal
             0.0000
            illegal
 """
 
-Q-Values at iteration 2 for action 'west' are correct.   Student/correct solution:
-	q_values_k_2_action_west: """
+Q-Values at iteration 2 for action 'east' are correct.   Student/correct solution:
+	q_values_k_2_action_east: """
            illegal
             0.0000
            illegal

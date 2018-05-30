@@ -151,7 +151,6 @@ class PacmanQAgent(QLearningAgent):
 class ApproximateQAgent(PacmanQAgent):
     """
        ApproximateQLearningAgent
-    
        You should only have to overwrite getQValue
        and update.  All other QLearningAgent functions
        should work as is.
@@ -159,10 +158,10 @@ class ApproximateQAgent(PacmanQAgent):
     def __init__(self, extractor='IdentityExtractor', **args):
         self.featExtractor = util.lookup(extractor, globals())()
         PacmanQAgent.__init__(self, **args)
-    
-        # You might want to initialize weights here.
-        "*** YOUR CODE HERE ***"
-        self.weights=util.Counter()
+        self.weights = util.Counter()
+
+    def getWeights(self):
+        return self.weights
 
     def getQValue(self, state, action):
         """
@@ -172,7 +171,7 @@ class ApproximateQAgent(PacmanQAgent):
         "*** YOUR CODE HERE ***"
         features=self.featExtractor.getFeatures(state,action)
         return sum([self.weights[feature]*features[feature] for feature in features])
-    
+		
     def update(self, state, action, nextState, reward):
         """
            Should update your weights based on transition
@@ -181,12 +180,12 @@ class ApproximateQAgent(PacmanQAgent):
         features = self.featExtractor.getFeatures(state,action)
         for feature in features:
             self.weights[feature]=self.weights[feature]+self.alpha*(reward+self.discount*self.getValue(nextState)-self.getQValue(state, action))*features[feature]
-    
+
     def final(self, state):
         "Called at the end of each game."
         # call the super-class final method
         PacmanQAgent.final(self, state)
-        
+
         # did we finish training?
         if self.episodesSoFar == self.numTraining:
             # you might want to print your weights here for debugging
